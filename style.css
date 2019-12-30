@@ -1,0 +1,23 @@
+body {
+    background-color: azure;
+
+}
+.header{
+width: 100%;
+
+background-color: gray
+}
+.main{
+    width: 65%;
+    height: 500px;
+    margin: 0 auto;
+    background-color: darkgrey
+}
+.side{
+width: 35%;
+height: 500px;
+background-color: antiquewhite
+}
+.footer{
+background-color: red;
+}
