@@ -41,7 +41,7 @@ $passwd = $_SESSION['passwd'];
                                    placeholder="Input password"></th>
                         </tr>
                         <tr>
-                            <th>  <input type="submit" name="submit" value="OK"></th>
+                            <th>  <input id="bottom" type="submit" name="submit" value="OK"></th>
                         </tr>
                     </table>
                 </form>
