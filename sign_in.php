@@ -32,10 +32,6 @@ $passwd = $_SESSION['passwd'];
                 <form action="" method="POST" name="sign_in">
                     <table>
                         <tr>
-                            <th> <input type="text" class="form-control" name="name" id="username"
-                                        placeholder="Input username"></th>
-                        </tr>
-                        <tr>
                             <th><input type="text" class="form-control" name="login" id="login"
                                    placeholder="Input login"></th>
                         </tr>
@@ -55,7 +51,6 @@ $passwd = $_SESSION['passwd'];
                 </ul>
             </div>
         </div>
-        <div class="side"></div>
     </div>
     <div class="footer">
         <footer></footer>
