@@ -87,17 +87,17 @@ body {
     flex: 0 0 auto;
 }
 
-.sign_in{
+.form{
     margin: auto;
     font-size: 25px;
 
 }
-.sign_in table{
+.form table{
      margin: auto;
      text-align: center;
     padding: unset;
  }
-.sign_in input{
+.form input{
     text-align: center;
     font-size: 16px;
     padding: 10px;
@@ -107,7 +107,7 @@ body {
     outline: none;
 }
 
-.sign_in ul li {
+.form ul li {
     list-style: none;
     float: right;
     text-align: center;
@@ -116,7 +116,7 @@ body {
     margin-top: 25px;
     margin-bottom: 25px;
 }
-.sign_in #bottom{
+.form #bottom{
     height: 25px;
     width: 75px;
     margin-top: 5px;
@@ -131,12 +131,12 @@ body {
     background: rgba(255, 119, 0, 0.18) linear-gradient(rgba(255, 110, 0, 0.47), rgb(255, 194, 110));
 }
 
-.sign_in a {
+.form a {
     font-size: 15px;
 
 }
 
-.sign_in a {
+.form a {
     background: linear-gradient(to bottom, var(--mainColor) 0%, var(--mainColor) 100%);
     background-position: 0 100%;
     background-repeat: repeat-x;
@@ -145,7 +145,7 @@ body {
     text-decoration: none;
 }
 
-.sign_in a:hover {
+.form a:hover {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .5s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
     background-position: 0 100%;
     background-size: auto 6px;
