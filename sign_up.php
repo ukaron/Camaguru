@@ -15,7 +15,7 @@ else
         $acc = new CreateAccount($login, $pass, $email, $token);
         if ($acc->register())
         {
-            mail($email, "Confirmation of registration", "To complete the registration, follow the link http://localhost:2222/verification.php?token=".$token."&login=".$login);
+            mail($email, "Registration", "To complete the registration, follow the link http://localhost:2222/verification.php?token=".$token."&login=".$login);
             header("Location: ./conf_email.php");
         }
     }

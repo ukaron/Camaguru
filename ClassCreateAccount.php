@@ -26,14 +26,14 @@ class CreateAccount
 
     public function register()
     {
-        if ($this->checkEmailBD())
+        if ($this->checkEmailBD() == false)
         {
             echo "E-mail already exists". PHP_EOL;
             return false;
         }
         else
             {
-            if ($this->checkLoginBD())
+            if ($this->checkLoginBD() == false)
             {
                 echo "Login already exists" . PHP_EOL;
                 return false;
@@ -77,7 +77,7 @@ class CreateAccount
         $connect = new connectBD();
         $connect->connect();
         $passHash = hash(sha256, $this->pass_c);
-        $add = $connect->DBH->query("INSERT INTO users (login, pass, email, token) VALUES ('$this->login_c','$passHash', '$this->email_c', '$this->token');");
+        $add = $connect->DBH->query("INSERT INTO possibleUsers (login, pass, email, token) VALUES ('$this->login_c','$passHash', '$this->email_c', '$this->token');");
         if ($add == true)
             return true;
         else
@@ -98,7 +98,7 @@ class CreateAccount
                             $bool = true;
                 }
                 if ($bool != true) {
-                    if (preg_match('/^[a-zA-Z0-9]+$/', $this->login_c))
+                    if (preg_match($reg, $this->login_c))
                         return true;
                     else
                         return false;
@@ -133,10 +133,8 @@ class CreateAccount
             {
                 if (preg_match($reg, $this->pass_c))
                     return true;
-                else{
-                    echo "Password is incorrect";
+                else
                     return false;
-                }
             }
         }
         else
@@ -147,28 +145,31 @@ class CreateAccount
     {
         $connect = new connectBD();
         $connect->connect();
-        $query = $connect->DBH->prepare("SELECT * FROM users WHERE login = ?");
+        $query = $connect->DBH->prepare("SELECT * FROM activeUsers WHERE login = ?");
         $query->execute(array($this->login_c));
-        if (($row_1 = $query->fetch()) > 0)
-            return true;
-        else
+        if (($row_1 = $query->fetch()) == true)
             return false;
-        $connect->DBH->commit();
+        $query_1 = $connect->DBH->prepare("SELECT * FROM possibleUsers WHERE login = ?");
+        $query_1->execute(array($this->login_c));
+        if (($row_2 = $query_1->fetch()) == true)
+            return false;
         $connect->closeConnect();
+        return true;
     }
     private function checkEmailBD()
     {
         $connect = new connectBD();
         $connect->connect();
-        $query = $connect->DBH->prepare("SELECT * FROM users WHERE email = ?");
+        $query = $connect->DBH->prepare("SELECT * FROM activeUsers WHERE email = ?");
         $query->execute(array($this->email_c));
-        if (($row_1 = $query->fetch()) > 0)
-            return true;
-        else{
+        if (($row_1 = $query->fetch()) == true)
+           return false;
+        $query_1 = $connect->DBH->prepare("SELECT * FROM possibleUsers WHERE email = ?");
+        $query_1->execute(array($this->email_c));
+        if (($row_2 = $query_1->fetch()) == true)
             return false;
-        }
-        $connect->DBH->commit();
         $connect->closeConnect();
+        return true;
     }
 }
 ?>

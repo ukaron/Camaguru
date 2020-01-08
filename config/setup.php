@@ -1,28 +1,31 @@
 <?php
 require ('database.php');
-$DBH->beginTransaction();
-$DBH->query("create table users
+$connect = new connectBD();
+$connect->connect();
+$connect->DBH->query("create table activeUsers
 (
-	login varchar(255) not null,
-	email varchar(255) not null,
-	fname varchar(255) null,
-	lname varchar(255) null,
-	pass char(64) not null,
-	token varchar(255) null,
-	varif int default 0 null,
-	remember_token varchar(100) null
+    login          varchar(255) not null,
+    email          varchar(255) not null,
+    pass           char(64)     not null,
+    fname          varchar(255) null,
+    lname          varchar(255) null,
+    remember_token varchar(255) null,
+    constraint activeUsers_email_uindex
+        unique (email),
+    constraint activeUsers_login_uindex
+        unique (login)
 );
 
-create unique index users_email_uindex
-	on users (email);
-
-create unique index users_login_uindex
-	on users (login);
-
-alter table users
-	add constraint users_pk
-		primary key (login);
+create table possibleUsers
+(
+    login varchar(255) not null,
+    email varchar(255) not null,
+    pass  char(64)     not null,
+    token varchar(255) null,
+    constraint possibleUsers_login_uindex
+        unique (login)
+);
 ");
-$DBH->commit();
+$connect->commit();
 ?>
 
