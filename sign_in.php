@@ -42,12 +42,10 @@ if (isset($_POST['login']) && isset($_POST['pass']) && isset($_POST['submit'])){
                 </form>
                 <ul id="nav">
                     <li><a href="create.php">Create an account</a></li>
-                    <li><a href="#">Forgotten password?</a></li>
+                    <li><a href="reset_pass.php">Forgotten password?</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="footer">
-
 <?php include('footer.php');?>
 

@@ -65,6 +65,7 @@ body {
     margin-right: 10px;
     justify-content: center;
     flex: 1 0 auto;
+    align-content: center;
 }
 
 .side{
@@ -108,6 +109,7 @@ body {
 }
 
 .form ul li {
+    align-content: center;
     list-style: none;
     float: right;
     text-align: center;
@@ -133,7 +135,8 @@ body {
 
 .form a {
     font-size: 15px;
-
+    align-content: center;
+    text-align: center;
 }
 
 .form a {

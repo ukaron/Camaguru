@@ -12,7 +12,7 @@
 <div class="header">
     <ul id="nav"  style="--items: 3;">
         <li><a href="logout.php">Logout</a></li>
-        <li><a href="config/database.php">Pictures</a></li>
+        <li><a href="#">Pictures</a></li>
         <li><a href="#">Profile</a></li>
     </ul>
 </div>
