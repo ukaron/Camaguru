@@ -155,3 +155,11 @@ body {
     background-repeat: repeat-x;
     text-decoration: none;
 }
+
+#canvas{
+    display: none;
+}
+
+#photo{
+    display: none;
+}
