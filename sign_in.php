@@ -1,7 +1,9 @@
 <?php
 session_start();
-if (isset($_POST['login']) && isset($_POST['pass']) && isset($_POST['submit'])){
-    include_once 'config/database.php';
+if (isset($_SESSION['login']))
+   header("Location: ./index.php");
+include ('config/database.php');
+if (isset($_POST['login']) && isset($_POST['pass']) && isset($_POST['submit'])) {
     $connect = new connectBD();
     $connect->connect();
 
@@ -9,13 +11,10 @@ if (isset($_POST['login']) && isset($_POST['pass']) && isset($_POST['submit'])){
     $pass = hash(sha256, $_POST['pass']);
     $query = $connect->DBH->prepare("SELECT * FROM activeUsers WHERE login = ? AND pass = ?");
     $query->execute(array($login, $pass));
-    if ($query->fetch())
-    {
+    if ($query->fetch()) {
         $_SESSION['login'] = $login;
-        $_COOKIE['login'] = $login;
-        header("Location: index.php");
-    }
-    else
+        header("Location: ./index.php");
+    } else
         echo "Incorrect login or password";
 }
 ?>

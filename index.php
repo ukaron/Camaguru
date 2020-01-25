@@ -28,7 +28,7 @@ if(isset($_POST['photo']) && isset($_POST['mask']))
                 $connect->connect();
                 $query = $connect->DBH->query("SELECT name FROM picEffect;");
                 $pic = $query->fetchAll();
-                for ($i = 0; $i < 3; $i++)
+                for ($i = 0; $i < count($pic); $i++)
                 {
                     echo "<img src=resources/".($pic[$i]['name'])." height=180 >";
                     echo "<input name='mask' value=resources/".($pic[$i]['name'])." type=radio>";

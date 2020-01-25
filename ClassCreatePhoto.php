@@ -4,6 +4,7 @@ class Photo{
    private $mask;
    private $path;
 
+
     public function __construct($post)
     {
         if (isset($post['photo']) && isset($post['mask']))
@@ -24,6 +25,9 @@ class Photo{
         imagecopy($pic, $mask, 0, 0, 0, 0, imagesx($pic), imagesy($pic));
         imagepng($pic, './resources/111OOO.png');
     }
+
+
+
 }
 
 ?>
