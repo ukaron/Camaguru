@@ -22,7 +22,7 @@ include('header.php');
             $users = $query->fetchAll();
             for($i = 0; $i <= count($users); $i++)
             {
-                echo "<a href='/gallery.php?login=".$users[0][$i]."'>".$users[6][$i] .$users[7][$i]."</a><br>";
+                echo "<a href='/gallery.php?login=".$users[0][$i]."'>".$users[$i][6] .$users[$i][7]."</a><br>";
             }
 
             ?>
